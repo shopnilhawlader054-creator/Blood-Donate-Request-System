@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Create Blood Request - Blood Donate & Request System{% endblock %}
+{%block content %}
+<div class="overflow-x-auto bg-white rounded-2xl shadow-md border border-gray-100">
+  <table class="w-full text-left border-collapse">
+    <thead class="bg-gray-50 border-b border-gray-100 text-xs uppercase text-gray-500 font-semibold">
+      <tr>
+        <th class="px-6 py-4">Hospital Name</th>
+        <th class="px-6 py-4">Patient Name</th>
+        <th class="px-6 py-4">Blood Group</th>
+        <th class="px-6 py-4">Bags Required</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100 text-sm text-gray-700">
+      
+      <!-- Table Row 1 -->
+      <tr class="hover:bg-gray-50 transition">
+        <td class="px-6 py-4 font-semibold text-gray-900">Feni Sadar Hospital</td>
+        <td class="px-6 py-4 font-bold text-gray-900">Rahim Ahmed</td>
+        <td class="px-6 py-4">
+          <span class="inline-flex items-center justify-center w-10 h-10 bg-red-600 text-white font-extrabold text-sm rounded-xl shadow-md">
+            O+
+          </span>
+        </td>
+        <td class="px-6 py-4 font-medium text-red-600">2 Bags</td>
+      </tr>
+
+      <!-- Table Row 2 -->
+      <tr class="hover:bg-gray-50 transition">
+        <td class="px-6 py-4 font-semibold text-gray-900">Modern Hospital</td>
+        <td class="px-6 py-4 font-bold text-gray-900">Fatema Begum</td>
+        <td class="px-6 py-4">
+          <span class="inline-flex items-center justify-center w-10 h-10 bg-red-600 text-white font-extrabold text-sm rounded-xl shadow-md">
+            A+
+          </span>
+        </td>
+        <td class="px-6 py-4 font-medium text-red-600">1 Bag</td>
+      </tr>
+
+      <!-- Table Row 3 -->
+      <tr class="hover:bg-gray-50 transition">
+        <td class="px-6 py-4 font-semibold text-gray-900">City Medical Center</td>
+        <td class="px-6 py-4 font-bold text-gray-900">Kamal Hossain</td>
+        <td class="px-6 py-4">
+          <span class="inline-flex items-center justify-center w-10 h-10 bg-red-600 text-white font-extrabold text-sm rounded-xl shadow-md">
+            B+
+          </span>
+        </td>
+        <td class="px-6 py-4 font-medium text-red-600">3 Bags</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+{%endblock%}
