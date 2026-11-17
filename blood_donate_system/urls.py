@@ -16,9 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blood.views import home
+from blood.views import home,register,login,donor_request,creat_donor,view_donor_profile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',view=home),
+    path('',view=home,name='home'),
+    path('register/',view=register,name='register'),
+    path('login/',view=login,name='login'),
+    path('creatdonor/',view=creat_donor,name='creat_donor'),
+    path('donorrequest/<int:pk>/',view=donor_request,name='donor_request'),
+    path('donorprofile/',view=view_donor_profile,name='view_donor_profile')
 ]

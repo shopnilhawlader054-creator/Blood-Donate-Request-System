@@ -22,7 +22,7 @@ class Donar(models.Model):
         ('notavailavle','Notavailavle')
     ]
     available =models.CharField(max_length=50,choices=AVAILAVLE_STATUS)
-    last_donation_date = models.DateField(max_length=50)
+    last_donation_date = models.DateField(max_length=50,blank=True,null=True)
 
 
 
@@ -40,6 +40,13 @@ class Patient(models.Model):
     ('O+', 'O Positive (O+)'),
     ('O-', 'O Negative (O-)'),
 ]
+    STATUS_CHOICES = [
+        ('Pending', 'Pending'),                       
+        ('Accepted', 'Accepted / Donor Assigned'),                      
+        ('Committed','Committed'),            
+        ('Rejected', 'Rejected'),                      
+    ]
+    status = models.CharField(max_length=30, choices=STATUS_CHOICES, default='Pending')
     blood_group = models.CharField(max_length=50,choices=CHOICE_BLOOD,)
     hospital_name = models.CharField(max_length=100)
     bagh_of_blood = models.CharField(max_length=50)

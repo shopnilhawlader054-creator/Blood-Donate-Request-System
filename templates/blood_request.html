@@ -1,57 +1,117 @@
 {% extends "base.html" %}
 
 {% block title %}Create Blood Request - Blood Donate & Request System{% endblock %}
-{%block content %}
-<div class="overflow-x-auto bg-white rounded-2xl shadow-md border border-gray-100">
-  <table class="w-full text-left border-collapse">
-    <thead class="bg-gray-50 border-b border-gray-100 text-xs uppercase text-gray-500 font-semibold">
-      <tr>
-        <th class="px-6 py-4">Hospital Name</th>
-        <th class="px-6 py-4">Patient Name</th>
-        <th class="px-6 py-4">Blood Group</th>
-        <th class="px-6 py-4">Bags Required</th>
-      </tr>
-    </thead>
-    <tbody class="divide-y divide-gray-100 text-sm text-gray-700">
-      
-      <!-- Table Row 1 -->
-      <tr class="hover:bg-gray-50 transition">
-        <td class="px-6 py-4 font-semibold text-gray-900">Feni Sadar Hospital</td>
-        <td class="px-6 py-4 font-bold text-gray-900">Rahim Ahmed</td>
-        <td class="px-6 py-4">
-          <span class="inline-flex items-center justify-center w-10 h-10 bg-red-600 text-white font-extrabold text-sm rounded-xl shadow-md">
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 py-6">
+  <!-- Page Header -->
+  <div class="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-900 tracking-tight">Active Blood Requests</h1>
+      <p class="text-sm text-gray-500 mt-1">Review urgent blood requests and find details below.</p>
+    </div>
+  </div>
+
+  <!-- Cards Grid Container -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Card Item 1 -->
+    <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 p-6 flex flex-col justify-between">
+      <div>
+        <!-- Top Row: Blood Group Badge & Status -->
+        <div class="flex items-center justify-between mb-4">
+          <span class="inline-flex items-center justify-center w-12 h-12 bg-red-600 text-white font-black text-base rounded-xl shadow-md">
             O+
           </span>
-        </td>
-        <td class="px-6 py-4 font-medium text-red-600">2 Bags</td>
-      </tr>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+            Pending
+          </span>
+        </div>
 
-      <!-- Table Row 2 -->
-      <tr class="hover:bg-gray-50 transition">
-        <td class="px-6 py-4 font-semibold text-gray-900">Modern Hospital</td>
-        <td class="px-6 py-4 font-bold text-gray-900">Fatema Begum</td>
-        <td class="px-6 py-4">
-          <span class="inline-flex items-center justify-center w-10 h-10 bg-red-600 text-white font-extrabold text-sm rounded-xl shadow-md">
+        <!-- Patient & Hospital Info -->
+        <div class="space-y-2 mb-6">
+          <h3 class="text-lg font-bold text-gray-900 tracking-tight">Rahim Ahmed</h3>
+          <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">Hospital Name</p>
+          <p class="text-sm font-semibold text-gray-700">Feni Sadar Hospital</p>
+        </div>
+
+        <!-- Required Bags Info -->
+        <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3 mb-6 border border-gray-100">
+          <span class="text-xs font-medium text-gray-500">Required Quantity</span>
+          <span class="text-sm font-bold text-red-600">2 Bags</span>
+        </div>
+      </div>
+
+      <!-- Action Button (View Details) -->
+      <div>
+        <a href="#" class="w-full inline-flex items-center justify-center py-2.5 px-4 bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold rounded-xl transition-all shadow-sm hover:shadow">
+          View Details
+        </a>
+      </div>
+    </div>
+
+    <!-- Card Item 2 -->
+    <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 p-6 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <span class="inline-flex items-center justify-center w-12 h-12 bg-red-600 text-white font-black text-base rounded-xl shadow-md">
             A+
           </span>
-        </td>
-        <td class="px-6 py-4 font-medium text-red-600">1 Bag</td>
-      </tr>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+            Approved
+          </span>
+        </div>
 
-      <!-- Table Row 3 -->
-      <tr class="hover:bg-gray-50 transition">
-        <td class="px-6 py-4 font-semibold text-gray-900">City Medical Center</td>
-        <td class="px-6 py-4 font-bold text-gray-900">Kamal Hossain</td>
-        <td class="px-6 py-4">
-          <span class="inline-flex items-center justify-center w-10 h-10 bg-red-600 text-white font-extrabold text-sm rounded-xl shadow-md">
+        <div class="space-y-2 mb-6">
+          <h3 class="text-lg font-bold text-gray-900 tracking-tight">Fatema Begum</h3>
+          <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">Hospital Name</p>
+          <p class="text-sm font-semibold text-gray-700">Modern Hospital</p>
+        </div>
+
+        <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3 mb-6 border border-gray-100">
+          <span class="text-xs font-medium text-gray-500">Required Quantity</span>
+          <span class="text-sm font-bold text-red-600">1 Bag</span>
+        </div>
+      </div>
+
+      <div>
+        <a href="#" class="w-full inline-flex items-center justify-center py-2.5 px-4 bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold rounded-xl transition-all shadow-sm hover:shadow">
+          View Details
+        </a>
+      </div>
+    </div>
+
+    <!-- Card Item 3 -->
+    <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 p-6 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <span class="inline-flex items-center justify-center w-12 h-12 bg-red-600 text-white font-black text-base rounded-xl shadow-md">
             B+
           </span>
-        </td>
-        <td class="px-6 py-4 font-medium text-red-600">3 Bags</td>
-      </tr>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+            Pending
+          </span>
+        </div>
 
-    </tbody>
-  </table>
+        <div class="space-y-2 mb-6">
+          <h3 class="text-lg font-bold text-gray-900 tracking-tight">Kamal Hossain</h3>
+          <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">Hospital Name</p>
+          <p class="text-sm font-semibold text-gray-700">City Medical Center</p>
+        </div>
+
+        <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3 mb-6 border border-gray-100">
+          <span class="text-xs font-medium text-gray-500">Required Quantity</span>
+          <span class="text-sm font-bold text-red-600">3 Bags</span>
+        </div>
+      </div>
+
+      <div>
+        <a href="#" class="w-full inline-flex items-center justify-center py-2.5 px-4 bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold rounded-xl transition-all shadow-sm hover:shadow">
+          View Details
+        </a>
+      </div>
+    </div>
+
+  </div>
 </div>
-
-{%endblock%}
+{% endblock %}

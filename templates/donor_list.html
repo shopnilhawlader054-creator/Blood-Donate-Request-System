@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Blood Donors - Blood Donate & Request System{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 py-6">
+  <!-- Page Header -->
+  <div class="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-900 tracking-tight">Available Blood Donors</h1>
+      <p class="text-sm text-gray-500 mt-1">Find registered blood donors in your area and connect with them.</p>
+    </div>
+  </div>
+
+  <!-- Donors Grid Container -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Donor Card 1 -->
+    <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 p-6 flex flex-col justify-between">
+      <div>
+        <!-- Top Row: Blood Group Badge & Status -->
+        <div class="flex items-center justify-between mb-4">
+          <span class="inline-flex items-center justify-center w-12 h-12 bg-red-600 text-white font-black text-base rounded-xl shadow-md">
+            A+
+          </span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+            Available
+          </span>
+        </div>
+
+        <!-- Donor Name & Address Info -->
+        <div class="space-y-2 mb-6">
+          <h3 class="text-lg font-bold text-gray-900 tracking-tight">Tanvir Ahmed</h3>
+          <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">Address / Location</p>
+          <p class="text-sm font-semibold text-gray-700 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            Masterpara, Feni Sadar
+          </p>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div>
+        <a href="#" class="w-full inline-flex items-center justify-center py-2.5 px-4 bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold rounded-xl transition-all shadow-sm hover:shadow">
+          View Profile
+        </a>
+      </div>
+    </div>
+
+    <!-- Donor Card 2 -->
+    <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 p-6 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <span class="inline-flex items-center justify-center w-12 h-12 bg-red-600 text-white font-black text-base rounded-xl shadow-md">
+            O-
+          </span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200">
+            Donated Recently
+          </span>
+        </div>
+
+        <div class="space-y-2 mb-6">
+          <h3 class="text-lg font-bold text-gray-900 tracking-tight">Nazmul Islam</h3>
+          <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">Address / Location</p>
+          <p class="text-sm font-semibold text-gray-700 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            Trunk Road, Feni
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <a href="#" class="w-full inline-flex items-center justify-center py-2.5 px-4 bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold rounded-xl transition-all shadow-sm hover:shadow">
+          View Profile
+        </a>
+      </div>
+    </div>
+
+    <!-- Donor Card 3 -->
+    <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 p-6 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <span class="inline-flex items-center justify-center w-12 h-12 bg-red-600 text-white font-black text-base rounded-xl shadow-md">
+            B+
+          </span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+            Available
+          </span>
+        </div>
+
+        <div class="space-y-2 mb-6">
+          <h3 class="text-lg font-bold text-gray-900 tracking-tight">Sumaiya Akter</h3>
+          <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">Address / Location</p>
+          <p class="text-sm font-semibold text-gray-700 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            Academy, Feni
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <a href="#" class="w-full inline-flex items-center justify-center py-2.5 px-4 bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold rounded-xl transition-all shadow-sm hover:shadow">
+          View Profile
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

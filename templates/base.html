@@ -10,6 +10,14 @@
 
 </head>
 <body class="bg-slate-50 text-slate-800">
+    {% if request.user.is_authenticated %}
+    <!-- টেমপ্লেট ২ (লগইন করা থাকলে এটি দেখাবে) -->
+    {% include 'navber.html' %}
+{% else %}
+    <!-- টেমপ্লেট ১ (লগআউট থাকলে এটি দেখাবে) -->
+    {% include 'acount/navber.html' %}
+{% endif %}
+   
 
     {% comment %} <!-- Your Django templates/content will go here -->
     <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
