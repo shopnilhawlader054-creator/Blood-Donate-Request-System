@@ -17,14 +17,14 @@
                 </a>
                 {% if request.user.donar.exists %}
                      <a href="{% url "view_donor_profile" %}" class="text-gray-700 hover:text-red-600 hover:bg-white px-3.5 py-1.5 rounded-full text-sm font-medium transition">
-                    View Donor Profile
+                     Your Donor Profile
                   </a>
                 {% else %}
                       <a href="{% url "creat_donor" %}" class="text-gray-700 hover:text-red-600 hover:bg-white px-3.5 py-1.5 rounded-full text-sm font-medium transition">
                     Create Donor Account
                    </a>
                 {% endif %}
-                <a href="#" class="text-gray-700 hover:text-red-600 hover:bg-white px-3.5 py-1.5 rounded-full text-sm font-medium transition">
+                <a href="{% url "my_request" %}" class="text-gray-700 hover:text-red-600 hover:bg-white px-3.5 py-1.5 rounded-full text-sm font-medium transition">
                     My Donor Request
                 </a>
             </div>
@@ -38,7 +38,7 @@
                 </div>
 
                 <!-- লগআউট ফর্ম -->
-                <form action="#" method="POST" class="inline">
+                <form action="{% url "user_logout" %}" method="POST" class="inline">
                     {% csrf_token %}
                     <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 shadow-sm hover:shadow transition cursor-pointer">
                         Logout

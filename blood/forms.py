@@ -23,6 +23,6 @@ class Donorform(forms.ModelForm):
         exclude = ['user']
 class Patiendform(forms.ModelForm):
     class Meta:
-        modle = Patient
+        model = Patient
         fields = '__all__'
-        exclude=['user','donar']
+        exclude=['user','donar','status']

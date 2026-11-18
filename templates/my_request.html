@@ -11,6 +11,7 @@
       <p class="text-sm text-gray-500 mt-1">Manage and track the status of all the blood requests you have created.</p>
     </div>
     <div>
+      <!-- আপনার ক্রিয়েট রিকোয়েস্ট পেজের ইউআরএল এখানে বসাবেন -->
       <a href="#" class="inline-flex items-center justify-center py-2.5 px-4 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-xl transition-all shadow-sm hover:shadow">
         + Create New Request
       </a>
@@ -20,11 +21,12 @@
   <!-- Requests Grid Container -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    <!-- Request Card 1 -->
+    {% for patient in patients %}
+    <!-- Request Card -->
     <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 p-6 flex flex-col justify-between relative">
       
       <!-- Top Right Delete Icon using <a> tag -->
-      <a href="#" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-xl bg-gray-50 hover:bg-red-50 text-gray-400 hover:text-red-600 transition-all border border-gray-100" title="Delete Request">
+      <a href="{% url "delet_blood_request" patient.id %}" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-xl bg-gray-50 hover:bg-red-50 text-gray-400 hover:text-red-600 transition-all border border-gray-100" title="Delete Request">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
         </svg>
@@ -34,91 +36,74 @@
         <!-- Top Row: Blood Group Badge & Status -->
         <div class="flex items-center gap-3 mb-4 pr-10">
           <span class="inline-flex items-center justify-center w-12 h-12 bg-red-600 text-white font-black text-base rounded-xl shadow-md">
-            O+
+            {{ patient.blood_group }}
           </span>
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
-            Pending
-          </span>
+
+          <!-- Dynamic Status Badge -->
+          {% if patient.status == 'Pending' %}
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+              Pending
+            </span>
+          {% elif patient.status == 'Accepted' %}
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+              Accepted
+            </span>
+          {% elif patient.status == 'Committed' %}
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              Committed
+            </span>
+          {% else %}
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200">
+              Rejected
+            </span>
+          {% endif %}
         </div>
 
         <!-- Patient & Hospital Info -->
         <div class="space-y-2 mb-4">
-          <h3 class="text-lg font-bold text-gray-900 tracking-tight">Rahim Ahmed (Father)</h3>
-          <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">Hospital Name</p>
-          <p class="text-sm font-semibold text-gray-700">Feni Sadar Hospital</p>
+          <h3 class="text-lg font-bold text-gray-900 tracking-tight">{{ patient.patient_name }}</h3>
+          
+          <div class="text-xs text-gray-500 flex items-center gap-1 font-medium">
+            <span class="font-semibold text-gray-700">Hospital:</span> {{ patient.hospital_name }}
+          </div>
+
+          <div class="text-xs text-gray-500 flex items-center gap-1 font-medium">
+            <span class="font-semibold text-gray-700">Assigned Donor:</span> 
+            <span class="text-red-600 font-bold">{{ patient.donar.name|default:"Not Assigned Yet" }}</span>
+          </div>
         </div>
 
-        <!-- Required Bags & Date -->
+        <!-- Required Bags & Contact -->
         <div class="bg-gray-50 rounded-xl p-3 mb-6 border border-gray-100 space-y-1.5">
           <div class="flex items-center justify-between">
             <span class="text-xs font-medium text-gray-500">Required Quantity</span>
-            <span class="text-sm font-bold text-red-600">2 Bags</span>
+            <span class="text-sm font-bold text-red-600">{{ patient.bagh_of_blood }} Bag(s)</span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-xs font-medium text-gray-500">Request Date</span>
-            <span class="text-xs font-medium text-gray-700">Nov 16, 2026</span>
+            <span class="text-xs font-medium text-gray-500">Contact Number</span>
+            <span class="text-xs font-semibold text-gray-700">{{ patient.contact_number }}</span>
           </div>
         </div>
       </div>
 
       <!-- Action Buttons (Edit / View Details) -->
       <div class="flex items-center gap-2">
-        <a href="#" class="flex-1 inline-flex items-center justify-center py-2 px-3 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold rounded-xl transition-all">
+        <!-- Edit URL -->
+        <a href="{% url "edit_my_request" patient.id %}" class="flex-1 inline-flex items-center justify-center py-2 px-3 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold rounded-xl transition-all">
           Edit
         </a>
+        <!-- View Details URL (আপনার patient detail পেজের রুট দিয়ে দেবেন) -->
         <a href="#" class="flex-1 inline-flex items-center justify-center py-2 px-3 bg-gray-900 hover:bg-gray-800 text-white text-xs font-semibold rounded-xl transition-all shadow-sm">
           View Details
         </a>
       </div>
     </div>
-
-    <!-- Request Card 2 -->
-    <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 p-6 flex flex-col justify-between relative">
-      
-      <!-- Top Right Delete Icon -->
-      <a href="#" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-xl bg-gray-50 hover:bg-red-50 text-gray-400 hover:text-red-600 transition-all border border-gray-100" title="Delete Request">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-        </svg>
-      </a>
-
-      <div>
-        <div class="flex items-center gap-3 mb-4 pr-10">
-          <span class="inline-flex items-center justify-center w-12 h-12 bg-red-600 text-white font-black text-base rounded-xl shadow-md">
-            A+
-          </span>
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-            Fulfilled
-          </span>
-        </div>
-
-        <div class="space-y-2 mb-4">
-          <h3 class="text-lg font-bold text-gray-900 tracking-tight">Fatema Begum</h3>
-          <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">Hospital Name</p>
-          <p class="text-sm font-semibold text-gray-700">Modern Hospital</p>
-        </div>
-
-        <div class="bg-gray-50 rounded-xl p-3 mb-6 border border-gray-100 space-y-1.5">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-medium text-gray-500">Required Quantity</span>
-            <span class="text-sm font-bold text-red-600">1 Bag</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-medium text-gray-500">Request Date</span>
-            <span class="text-xs font-medium text-gray-700">Nov 10, 2026</span>
-          </div>
-        </div>
+    {% empty %}
+      <!-- যদি কোনো রিকোয়েস্ট না থাকে -->
+      <div class="col-span-full text-center py-12 bg-white rounded-2xl border border-gray-100 shadow-sm">
+        <p class="text-gray-500 text-sm font-medium">You haven't created any blood requests yet.</p>
       </div>
-
-      <div class="flex items-center gap-2">
-        <a href="#" class="flex-1 inline-flex items-center justify-center py-2 px-3 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold rounded-xl transition-all">
-          Edit
-        </a>
-        <a href="#" class="flex-1 inline-flex items-center justify-center py-2 px-3 bg-gray-900 hover:bg-gray-800 text-white text-xs font-semibold rounded-xl transition-all shadow-sm">
-          View Details
-        </a>
-      </div>
-    </div>
+    {% endfor %}
 
   </div>
 </div>
